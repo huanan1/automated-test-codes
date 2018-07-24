@@ -2,17 +2,24 @@ from selenium import webdriver
 from time import sleep
 from selenium.common.exceptions import NoSuchElementException
 
+# REQUIRED INFO
+trelloboard = " " # put your trelloboard link here
+email = " " # your email
+password = " " # your password
+
+
+
 driver = webdriver.Chrome(r"C:\Users\Tea\Desktop\BCA\AutomatedTesting\Selenium\chromedriver.exe")
-driver.get("<your trello board>")
+driver.get(trelloboard)
 
 login = driver.find_element_by_css_selector(".js-login")
 login.click()
 
 username = driver.find_element_by_id("user")
-username.send_keys("<youremail>")
+username.send_keys(email)
 
 password = driver.find_element_by_id("password")
-password.send_keys("<yourpassword>")
+password.send_keys(password)
 
 login = driver.find_element_by_id("login")
 login.click()
@@ -20,8 +27,9 @@ login.click()
 # load the page
 sleep(2)
 
-
+'''You will need to change the labels of the xpath to suit your needs, though the general format should be the same'''
 def androidMembers():
+    # finding the list of interest and the cards under it
     androidCards = driver.find_elements_by_xpath("//textarea[@aria-label='Android']//parent::div//following-sibling::div[contains(@class,'list-cards')]/child::a")
 
     print("found cards")
@@ -32,10 +40,16 @@ def androidMembers():
         members = driver.find_element_by_xpath("//div[@class='window-sidebar']//a[contains(@class,'button-link')]")
         members.click()
 
-        khoa = driver.find_element_by_xpath("//a[contains(@title,'<name>')]")
+        # find the member you want to add to the card
+        name1 = driver.find_element_by_xpath("//a[contains(@title,'name1')]")
         check = driver.find_element_by_xpath("//span[contains(@name,'khoa59')]//following-sibling::span[contains(@class,'icon-check')]")
-        if check.value_of_css_property('display') == 'None':
-            khoa.click()
+
+        try:
+            check = driver.find_element_by_xpath("//span[contains(@name,'khao59')]//following-sibling::span[contains(@class,'icon-check')]")
+        except NoSuchElementException:
+            print("name not ticked yet. Click!")
+            name1.click()
+
             close = driver.find_element_by_xpath("//a[contains(@class,'icon-lg icon-close dialog-close-button')]")
             close.click()
 
