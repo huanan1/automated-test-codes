@@ -4,7 +4,7 @@
 [8Days_AutomatedTest.py](8Days_AutomatedTest.py) <br>
 [PaymentForm_Catch.py](PaymentForm_Catch.py) <br>
 
-### Automatically adding relevant members to Trello cards based on the name of the list
+### Automatically adding relevant members to Trello cards based on list name
 [add-trello-mem-class-public.py](add-trello-mem-class-public.py) <br>
 [add_member_to_trello_board.py](add_member_to_trello_board.py) <br>
 
