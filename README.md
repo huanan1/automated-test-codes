@@ -9,7 +9,7 @@
 [add_member_to_trello_board.py](add_member_to_trello_board.py) <br>
 
 ### Automate compression of images in a specified folder using tinyJPG.com
-[compress_img_public.py](compress_img_public.py)
+[compress_img_public.py](compress_img_public.py) <br>
 Note: Buggy
 
 
