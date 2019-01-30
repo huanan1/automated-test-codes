@@ -2,14 +2,18 @@ from selenium import webdriver
 from time import sleep
 from selenium.common.exceptions import NoSuchElementException
 
-# REQUIRED INFO
+# =========== REQUIRED INFO ==============
 trelloboard = " " # put your trelloboard link here
 email = " " # your email
 password = " " # your password
 
+CHROMEDRIVER_PATH = r"" # path to chromedriver.exe
 
+name1 = ""
+name2 = ""
+# =========================================
 
-driver = webdriver.Chrome(r"C:\Users\Tea\Desktop\BCA\AutomatedTesting\Selenium\chromedriver.exe")
+driver = webdriver.Chrome(CHROMEDRIVER_PATH)
 driver.get(trelloboard)
 
 login = driver.find_element_by_css_selector(".js-login")
@@ -41,11 +45,11 @@ def androidMembers():
         members.click()
 
         # find the member you want to add to the card
-        name1 = driver.find_element_by_xpath("//a[contains(@title,'name1')]")
-        check = driver.find_element_by_xpath("//span[contains(@name,'khoa59')]//following-sibling::span[contains(@class,'icon-check')]")
+        name1 = driver.find_element_by_xpath("//a[contains(@title,name1)]")
+        check = driver.find_element_by_xpath("//span[contains(@name,name2)]//following-sibling::span[contains(@class,'icon-check')]")
 
         try:
-            check = driver.find_element_by_xpath("//span[contains(@name,'khao59')]//following-sibling::span[contains(@class,'icon-check')]")
+            check = driver.find_element_by_xpath("//span[contains(@name,name2)]//following-sibling::span[contains(@class,'icon-check')]")
         except NoSuchElementException:
             print("name not ticked yet. Click!")
             name1.click()
@@ -69,17 +73,17 @@ def IOSMembers():
         members = driver.find_element_by_xpath("//div[@class='window-sidebar']//a[contains(@class,'button-link')]")
         members.click()
 
-        name1 = driver.find_element_by_xpath("//a[contains(@title,'name')]")
-        name2 = driver.find_element_by_xpath("//a[contains(@title,'name2')]")
+        name1 = driver.find_element_by_xpath("//a[contains(@title,name1)]")
+        name2 = driver.find_element_by_xpath("//a[contains(@title,name2)]")
 
         try:
-            check = driver.find_element_by_xpath("//a[contains(@title,'name')]//parent::li[contains(@class,'active')]")
+            check = driver.find_element_by_xpath("//a[contains(@title,name1)]//parent::li[contains(@class,'active')]")
         except NoSuchElementException:
             print("name not ticked yet. Click!")
             name.click()
 
         try:
-            check = driver.find_element_by_xpath("//a[contains(@title,'name')]//parent::li[contains(@class,'active')]")
+            check = driver.find_element_by_xpath("//a[contains(@title,name1)]//parent::li[contains(@class,'active')]")
 
         except NoSuchElementException:
             print("name not ticked yet. Click!")
