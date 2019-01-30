@@ -9,8 +9,8 @@ password = " " # your password
 
 CHROMEDRIVER_PATH = r"" # path to chromedriver.exe
 
-name1 = ""
-name2 = ""
+name1 = "" # username of the first member you want to add to card
+name2 = "" # username of second member etc
 # =========================================
 
 driver = webdriver.Chrome(CHROMEDRIVER_PATH)
