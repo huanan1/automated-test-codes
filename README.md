@@ -13,4 +13,14 @@ Overview: https://drive.google.com/drive/u/4/folders/1KlCc4ti1VPsoSy3J94_PHpc0yK
 [compress_img_public.py](compress_img_public.py) <br>
 Note: Buggy
 
+## 8Days_AutomatedTest.py
+Language used: Python
+Tools used: Selenium, Appium, Applitool Eyes
+
+Introduction
+This code aims to show how one can write a test using appium, applitools and selenium. Several different methods are showcased in order to introduce the different ways testing can be carried out.
+
+Main takeaways:
+Using applitools, appium and selenium to interact with elements in a mobile app (not restricted to Android)
+Using Object-Oriented Programming to write more structured code
 
